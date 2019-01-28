@@ -1,1 +1,1 @@
-bot: python mainBody.py
+web: python mainBody.py
