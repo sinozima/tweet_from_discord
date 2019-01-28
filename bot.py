@@ -8,9 +8,9 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-  if message.author != client.user:
-      id = ""+str(message.channel)
-      if id == "twitter":
+    if message.author != client.user:
+        id = ""+str(message.channel)
+        con = message.content
         CK = "qQyf2BKpyh39YvR1VpVIOlEZS"
         CS = "kSGapIP5fK8Hjz23oOv9aOuVqUGiZT2lgTC3f7n2UF6j8DYc8k"
         auth = tweepy.OAuthHandler(CK,CS)
@@ -18,6 +18,10 @@ async def on_message(message):
         AS = "0KAe1lDfA3ZB9BAuN4UdRXYTND8M6isEGDhNxaa7OyHSr"
         auth.set_access_token(AT,AS)
         api = tweepy.API(auth)
-        api.update_status(message.content)
+        if id == "twitter":
+            if "/follow" ==  con[0:7]:
+                api.create_friendship(con[8:])
+            else:
+                api.update_status(message.content)
 
 client.run('NTM1NjE5NTM1ODAyMzM1MjU0.DyK1nA.DxZ8IeqWta7qqjE8AmUo5z5smAk')
