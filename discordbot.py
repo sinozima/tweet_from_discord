@@ -9,10 +9,10 @@ async def on_ready():
 
 # 「/neko」と発言したら「にゃーん」が返る処理
 @client.event
-async def on_message(message):
-    if message.content.startswith('/neko'):
-        reply = 'にゃーん'
-        await client.send_message(message.channel, reply)
+    async def on_message(message):
+        if message.content.startswith('/neko'):
+            reply = 'にゃーん'
+            await client.send_message(message.channel, reply)
 
 # botの接続と起動
 # （tokenにはbotアカウントのアクセストークンを入れてください）
