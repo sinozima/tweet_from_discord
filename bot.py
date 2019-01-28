@@ -6,6 +6,9 @@ client = discord.Client() # 接続に使用するオブジェクト
 @client.event
 async def on_ready():
     print('ログインしました')
+    reply = 'にゃーん'
+    await client.send_message(message.channel, reply)
+    
 
 # 「/neko」と発言したら「にゃーん」が返る処理
 @client.event
