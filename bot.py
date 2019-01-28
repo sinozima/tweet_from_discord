@@ -21,6 +21,8 @@ async def on_message(message):
         if id == "twitter":
             if "/follow" ==  con[0:7]:
                 api.create_friendship(con[8:])
+            if "/destroy" == con[0:8]:
+                api.destroy_status(tweets.id)
             else:
                 api.update_status(message.content)
 
